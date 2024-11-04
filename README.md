@@ -2,7 +2,7 @@
 
 A React-based webcam application that recreates the nostalgic aesthetic of early MacBook webcams, complete with characteristic colored noise and retro effects.
 
-![OGWebcam Interface](insert_screenshot_here.png)
+![OGWebcam Interface](screenshot.png)
 
 ## Features
 
