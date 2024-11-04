@@ -25,7 +25,7 @@ A React-based webcam application that recreates the nostalgic aesthetic of early
 
 ```bash
 # Clone the repository
-git clone https://github.com/yourusername/ogwebcam.git
+git clone https://github.com/jkpth/ogwebcam.git
 
 # Navigate to the project directory
 cd ogwebcam
@@ -122,5 +122,5 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ## Contact
 
-Your Name - [@yourtwitter](https://twitter.com/yourtwitter)
-Project Link: [https://github.com/yourusername/ogwebcam](https://github.com/yourusername/ogwebcam)
+Jacob Thompson - jptho@proton.me
+Project Link: [https://github.com/jkpth/ogwebcam](https://github.com/jkpth/ogwebcam)
