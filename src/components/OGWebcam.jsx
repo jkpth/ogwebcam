@@ -16,11 +16,11 @@ export function OGWebcam() {
 
   // Adjustable effect parameters
   const effects = {
-    grainAmountR: 35,        // Red channel grain
-    grainAmountG: 40,        // Green channel grain
-    grainAmountB: 50,        // Blue channel grain
+    grainAmountR: 50,        // Red channel grain
+    grainAmountG: 60,        // Green channel grain
+    grainAmountB: 70,        // Blue channel grain
     contrast: 1.1,           // Slight contrast boost
-    brightness: 1.05,        // Slight brightness boost
+    brightness: 0.65,        // Slight brightness boost
     saturation: 0.95,        // Slightly reduced saturation
     vignetteAmount: 0.15,    // Subtle vignette
     dynamicNoiseScale: 0.4   // How much the noise responds to brightness

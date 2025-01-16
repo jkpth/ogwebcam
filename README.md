@@ -30,7 +30,7 @@ git clone https://github.com/yourusername/ogwebcam.git
 # Navigate to the project directory
 cd ogwebcam
 
-# Install dependencies
+# Install dependencieszz
 npm install
 
 # Start the development server
