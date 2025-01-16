@@ -27,7 +27,7 @@ A React-based webcam application that recreates the nostalgic aesthetic of early
 # Clone the repository
 git clone https://github.com/jkpth/ogwebcam.git
 
-# Navigate to the project directorys
+# Navigate to the project directorysz
 cd ogwebcam
 
 # Install dependencieszz
