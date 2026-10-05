@@ -27,10 +27,10 @@ A React-based webcam application that recreates the nostalgic aesthetic of early
 # Clone the repository
 git clone https://github.com/jkpth/ogwebcam.git
 
-# Navigate to the project directorysz
+# Navigate to the project directory
 cd ogwebcam
 
-# Install dependencieszz
+# Install dependencies
 npm install
 
 # Start the development server
@@ -50,17 +50,17 @@ npm run dev
 ```json
 {
   "dependencies": {
-    "react": "^18.2.0",
-    "react-dom": "^18.2.0",
-    "lucide-react": "^0.263.1",
-    "framer-motion": "^10.x.x"
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "lucide-react": "^0.454.0",
+    "framer-motion": "^11.11.11"
   },
   "devDependencies": {
-    "@vitejs/plugin-react": "^4.0.3",
-    "autoprefixer": "^10.4.14",
-    "postcss": "^8.4.27",
-    "tailwindcss": "^3.3.3",
-    "vite": "^4.4.5"
+    "@vitejs/plugin-react": "^4.3.3",
+    "autoprefixer": "^10.4.20",
+    "postcss": "^8.4.47",
+    "tailwindcss": "^3.4.14",
+    "vite": "^5.4.10"
   }
 }
 ```
