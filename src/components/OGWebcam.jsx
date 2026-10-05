@@ -3,9 +3,38 @@ import React, { useState, useRef, useEffect } from 'react';
 import { Camera, Circle } from 'lucide-react';
 import { CameraEffectGrid } from '../effects/CameraEffectGrid';
 
+function getCameraErrorMessage(err) {
+  switch (err?.name) {
+    case 'NotAllowedError':
+    case 'PermissionDeniedError':
+      return {
+        title: 'Camera access denied',
+        detail: 'Grant camera permission in your browser settings, then reload this page.',
+      };
+    case 'NotFoundError':
+    case 'DevicesNotFoundError':
+      return {
+        title: 'No camera found',
+        detail: 'Plug in a camera or enable your built-in webcam, then reload this page.',
+      };
+    case 'NotReadableError':
+    case 'TrackStartError':
+      return {
+        title: 'Camera is unavailable',
+        detail: 'Close other apps that may be using the camera, then try again.',
+      };
+    default:
+      return {
+        title: 'Could not start the camera',
+        detail: 'Check that a camera is connected and that this site has permission to use it.',
+      };
+  }
+}
+
 export function OGWebcam() {
   const [isRecording, setIsRecording] = useState(false);
   const [hasWebcamAccess, setHasWebcamAccess] = useState(false);
+  const [cameraError, setCameraError] = useState(null);
   const videoRef = useRef(null);
   const canvasRef = useRef(null);
   const displayCanvasRef = useRef(null);
@@ -96,6 +125,12 @@ export function OGWebcam() {
   useEffect(() => {
     async function setupWebcam() {
       try {
+        if (!navigator.mediaDevices?.getUserMedia) {
+          throw Object.assign(new Error('Camera API unavailable'), {
+            name: 'NotSupportedError',
+          });
+        }
+
         const stream = await navigator.mediaDevices.getUserMedia({ 
           video: {
             width: { ideal: 640 },
@@ -104,6 +139,8 @@ export function OGWebcam() {
           },
           audio: false 
         });
+
+        setCameraError(null);
         
         if (videoRef.current) {
           videoRef.current.srcObject = stream;
@@ -116,6 +153,7 @@ export function OGWebcam() {
       } catch (err) {
         console.error("Error accessing webcam:", err);
         setHasWebcamAccess(false);
+        setCameraError(getCameraErrorMessage(err));
       }
     }
 
@@ -141,8 +179,15 @@ export function OGWebcam() {
           <canvas ref={displayCanvasRef} className="absolute inset-0 w-full h-full" />
           
           {!hasWebcamAccess && (
-            <div className="absolute inset-0 flex items-center justify-center text-gray-400">
-              Requesting camera access...
+            <div className="absolute inset-0 flex items-center justify-center px-6 text-center">
+              {cameraError ? (
+                <div className="max-w-sm">
+                  <p className="text-gray-200 font-medium">{cameraError.title}</p>
+                  <p className="mt-2 text-sm text-gray-400">{cameraError.detail}</p>
+                </div>
+              ) : (
+                <p className="text-gray-400">Requesting camera access...</p>
+              )}
             </div>
           )}
 
